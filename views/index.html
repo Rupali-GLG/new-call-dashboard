@@ -1,0 +1,55 @@
+<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf8" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" name="viewport">
+    <meta http-equiv="Content-Language" content="en">
+    <title>GLG Call Dashboard</title>
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+  <body>
+      <div class="header">
+        <img src="/images/glg_switchboard_logo.png" class="logo_image" hide-sm>
+    </div>
+    <div class="title">
+      <span>Project Title : {{title}}</span>
+    </div>
+    <div class="participants">
+      {{#participants}}
+      <div style="border-style: ridge;">
+        <p>{{councilMember.firstName}} {{councilMember.lastName}} ({{councilMember.title}}) | CPID: {{consultationParticipantId}}</p>
+        <div>
+          <p> {{#scheduledDate}}Call scheduled: {{formatDate scheduledDate 'MMMM Do [at] h:mma'}} {{/scheduledDate}}</p>
+          {{#hascallLegs}}
+          <p><a>Hide Call Logs</a></p>
+          <table>
+            <tr>
+              <td>Caller</td>
+              <td>Type</td>
+              <td>Status</td>
+              <td>Length</td>
+              <td>Joined</td>
+              <td>Exited</td>
+              <td>From Phone</td>
+              <td>To Phone</td>
+              <td>PIN</td>
+            </tr>
+            {{#callLegs}}
+            <tr>
+              <td>{{callerType}}</td>
+              <td>{{direction}}</td>
+              <td>{{active}}</td>
+              <td>Length</td>
+              <td>{{formatDate startUtc 'MM/DD/YYYY h:mma'}}</td>
+              <td>{{formatDate endUtc 'MM/DD/YYYY h:mma'}}</td>
+              <td>{{from}}</td>
+              <td>{{to}}</td>
+              <td>{{pinNumber}}</td>
+            </tr>
+            {{/callLegs}}
+          </table>
+          {{/hascallLegs}}
+        </div>
+      </div>
+      {{/participants}}
+    </div>
+  </body>
+</html>

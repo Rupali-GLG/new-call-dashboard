@@ -1,0 +1,17 @@
+{
+  "name": "Call-Dashboard",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "body-parser": "^1.17.2",
+    "mustache": "^2.3.0",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
+    "lodash": "^4.17.4"
+  },
+  "scripts": {
+    "start": "node app.js;",
+    "dev": "source local_orders; bower install; gulp && gulp watch --silent & node_modules/nodemon/bin/nodemon.js -e js,less ./bin/cluster.js"
+  }
+}
